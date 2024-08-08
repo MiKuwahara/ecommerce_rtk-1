@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-const initialState = {
-    cartItems: [],
+
+  const initialState = {
+    // List of objects
+    cartItems: [], 
   };
+
 const CartSlice = createSlice({
     name: 'cart',
     initialState,
@@ -11,6 +14,7 @@ const CartSlice = createSlice({
             if (existingItem) {
               existingItem.quantity += 1;
             } else {
+              // Push new item containing its old attributes plus quantity
               state.cartItems.push({ ...action.payload, quantity: 1 });
             }
           },
